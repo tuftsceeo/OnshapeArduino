@@ -1,0 +1,4 @@
+Troubleshooting "documents/"
+Add more examples
+Making library.properties file/Making library compatible w Online editor
+Make a separate repo for SHA256
