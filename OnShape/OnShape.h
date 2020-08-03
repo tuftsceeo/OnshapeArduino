@@ -8,18 +8,25 @@
 #include <TimeLib.h>
 
 #include <sha256.h>
-#include <base64.hpp>
 
 class OnShape
 {
 	public:
-		OnShape(String accessKey, String secretKey, char ssid[], char pass[]);
+		OnShape(String accessKey, const char secretKey[]);
+		void start(const char ssid[], const char pass[]);
+
+		/* Wrapper functions */
+		String getDocument(String documentID);
+
+		/* Raw request functions (use these if no wrapper function exists) */
+		String makeRequest(String reqType, String path);
+		String makeRequest(String reqType, String path, const char data[]);
 	private:
 		String _accessKey;
-		String _secretKey;
+		const char *_secretKey;
 		WiFiSSLClient _client;
 
-		void connectWifi(char ssid[], char pass[]);
+		void connectWifi(const char ssid[], const char pass[]);
 		void printWifiStatus();
 
 		String buildNonce();
@@ -27,8 +34,6 @@ class OnShape
 		String getHmac64(String payload, String key);
 		String buildHeaders(String method, String urlpath, String nonce, String date, String contentType);
 		
-		void makeRequest(String reqType, String path);
-		void makeRequest(String reqType, String path, const char data[]);
 };
 
 #endif

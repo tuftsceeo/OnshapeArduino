@@ -3,6 +3,7 @@ This is a trimmed-down version of Peter Knight's excellent Cryptosuite library f
 To help fit complex applications within the limited code space of the Arduino, this version strips out the SHA-1 functionality -- it wasn't required for my OpenSesame code.
 
 https://github.com/Cathedrow/Cryptosuite
+https://github.com/simonratner/Arduino-SHA-256
 
 The original also contains a test suite and further exposition on the use of hash functions.
 

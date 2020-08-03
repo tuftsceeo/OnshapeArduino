@@ -14,10 +14,10 @@ This client is made up of four libraries:
 
 - TimeLib: Built-in library used to get dates for [request signature](https://dev-portal.onshape.com/keys)
 - SHA256: Creates the HMAC digest for authorization
-- Base64: Encodes the HMAC in base 64
+- [Base64](https://github.com/Densaugeo/base64_arduino): Encodes the HMAC in base 64
 - ArduinoOnShapeLib: The actual client interface
 
-Aside from TimeLib, these libraries must be installed from this repository. To do so, zip the contents of each folder into a zip. Then, in the Arduino IDE, you can install each of the three libraries through `Sketch>Include Library>Add .ZIP Library`.
+TimeLib and [Base64](https://github.com/Densaugeo/base64_arduino) can be installed through the Arduino IDE's Library Manager. SHA256 and the OnShape client must be installed from this repository. To do so, zip the contents of each folder into a zip. Then, in the Arduino IDE, you can install each of the three libraries through `Sketch>Include Library>Add .ZIP Library`.
 
 ## Usage
 
