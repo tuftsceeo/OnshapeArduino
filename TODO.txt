@@ -1,3 +1,2 @@
-Troubleshooting "documents/"
 Add more examples (one that creates and access a new document)
 Making library.properties file/Making library compatible w Online editor
