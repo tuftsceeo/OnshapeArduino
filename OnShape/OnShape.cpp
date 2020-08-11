@@ -6,44 +6,44 @@ int status = WL_IDLE_STATUS;
 const PROGMEM char server[] = "cad.onshape.com";
 
 OnShape::OnShape(const char accessKey[], const char secretKey[]) {
-	_accessKey = accessKey;
-	_secretKey = secretKey;
+  _accessKey = accessKey;
+  _secretKey = secretKey;
 }
 
 void OnShape::start(const char ssid[], const char pass[]) {
-	while (!Serial) {
-		Serial.begin(9600);
-	}
+  while (!Serial) {
+    Serial.begin(9600);
+  }
 
-	randomSeed(analogRead(0));
+  randomSeed(analogRead(0));
 
-	// connect to WiFi
-	connectWifi(ssid, pass);
+  // connect to WiFi
+  connectWifi(ssid, pass);
 
-	_client.connect(server, 443);
+  _client.connect(server, 443);
   Serial.println(F("Connected to OnShape server"));
 }
 
 void OnShape::connectWifi(const char ssid[], const char pass[]) {
-	if (WiFi.status() == WL_NO_SHIELD) {
-		Serial.println(F("WiFi shield not present"));
-		// no shield -- SHUT IT DOWN AHHHH!
-		while (true);
-	}
+  if (WiFi.status() == WL_NO_SHIELD) {
+    Serial.println(F("WiFi shield not present"));
+    // no shield -- SHUT IT DOWN AHHHH!
+    while (true);
+  }
 
-	Serial.println(WiFi.firmwareVersion());
+  Serial.println(WiFi.firmwareVersion());
 
-	while (status != WL_CONNECTED) {
-		Serial.print(F("Attempting to connect to SSID: "));
-		Serial.println(ssid);
-		// Connect to WPA/WPA2 network
-		status = WiFi.begin(ssid, pass);
-	
-		delay(10000);
-	}
-	Serial.println(F("Connected to wifi"));
+  while (status != WL_CONNECTED) {
+    Serial.print(F("Attempting to connect to SSID: "));
+    Serial.println(ssid);
+    // Connect to WPA/WPA2 network
+    status = WiFi.begin(ssid, pass);
+  
+    delay(10000);
+  }
+  Serial.println(F("Connected to wifi"));
 
-	printWifiStatus();
+  printWifiStatus();
 }
 
 void OnShape::printWifiStatus() {
@@ -115,11 +115,15 @@ void OnShape::getHmac64 (const char payload[], const char key[], char* out) {
 }
 
 void OnShape::buildHeaders (const char method[], const char url[], const char nonce[], const char date[], const char contentType[], char* out) {
-  // TODO: add queries
-  const char *path = url;
-  const char *queries = "";
+  char *temp = new char[strlen(url)+1];
+  strcpy(temp, url);
 
-  char payload[200];
+  char *path = strtok(temp, "?");
+  char *queries = strtok(nullptr, "?");
+
+  delete[] temp;
+
+  char payload[250];
   // big string, so we'll use flash memory instead of SRAM
   snprintf_P(payload, sizeof(payload), PSTR("%s\n%s\n%s\n%s\n%s\n%s\n"), method, nonce, date, contentType, path, queries);
   // convert to lowercase

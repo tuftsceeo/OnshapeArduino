@@ -22,7 +22,7 @@ class OnShape
 		/* Raw request functions (use these if no wrapper function exists) */
 		String makeRequest(const char reqType[], const char path[]);
 		String makeRequest(const char reqType[], const char path[], const char data[]);
-		
+
 		/* Request stream functions (for large data that can't fit in memory) */
 		WiFiSSLClient makeRequestStream(const char reqType[], const char path[]);
 		WiFiSSLClient makeRequestStream(const char reqType[], const char path[], const char data[]);
