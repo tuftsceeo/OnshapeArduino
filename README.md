@@ -21,4 +21,4 @@ TimeLib and [Base64](https://github.com/Densaugeo/base64_arduino) can be install
 
 ## Usage
 
-This API client can make the same API requests that are availible in OnShape's API Explorer. You can find example code through the IDE in `File>Examples>OnShape` or in this repo under `OnShape/examples'.
+This API client can make the same API requests that are available in OnShape's API Explorer. You can find example code through the IDE in `File>Examples>OnShape` or in this repo under `OnShape/examples'.
