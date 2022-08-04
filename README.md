@@ -1,4 +1,4 @@
-# Arduino OnShape API Client
+# Arduino Onshape API Client
 
 An API client that allows Arduino Nano to interact with OnShape's API
 
