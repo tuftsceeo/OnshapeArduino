@@ -10,14 +10,12 @@ To start, you'll want to create an API Key/Secret Key pair [here](https://dev-po
 
 ### Installing Libraries
 
-This client is made up of four libraries:
+This client is made up of the following libraries:
 
-- TimeLib: Built-in library used to get dates for [request signature](https://dev-portal.onshape.com/keys)
-- SHA256: Creates the HMAC digest for authorization
-- [Base64](https://github.com/Densaugeo/base64_arduino): Encodes the HMAC in base 64
+- [Base64_Codec](https://www.arduino.cc/reference/en/libraries/base64_codec/): Encodes the authentication key in base 64
 - OnShape: The actual client interface
 
-TimeLib and [Base64](https://github.com/Densaugeo/base64_arduino) can be installed through the Arduino IDE's Library Manager. SHA256 and OnShape must be installed from this repository. To do so, zip the contents of each folder. Then, in the Arduino IDE, you can install these two libraries through `Sketch>Include Library>Add .ZIP Library`.
+[Base64_Codec] can be installed through the Arduino IDE's Library Manager.OnShape must be installed from this repository. To do so, zip the contents of each folder. Then, in the Arduino IDE, you can install these two libraries through `Sketch>Include Library>Add .ZIP Library`.
 
 ## Usage
 
